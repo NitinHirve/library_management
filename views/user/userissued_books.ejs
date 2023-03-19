@@ -1,0 +1,46 @@
+<%- include('./includes/nav')%>
+
+<div class="container">
+  
+
+    <table style="margin:50px 0 20px 0; "  class="table  table-striped ">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">BookId</th>
+            <th scope="col">BookName</th>
+            <th scope="col">Author</th>
+            <th scope="col">Description</th>
+            <th scope="col">UserId</th>
+            <th scope="col">Issued On</th>
+            <!-- <th scope="col">Due Date</th>
+            <th scope="col">Returned Date</th> -->
+            <!-- <th scope="col">Action</th> -->
+
+          </tr>
+        </thead>
+        <tbody>
+            <% for(var i=0; i<users.length;i++) { if(users[i].user_id==userid) { %>
+                
+                <tr>
+                  <th scope="row"><%= i+1 %></th>
+                  <td><%= users[i].book_id  %></td>
+                  <td><%= users[i].book_name %></td>
+                  <td><%= users[i].authorname %></td>
+                  <td><%= users[i].description %></td>
+                  <td><%= users[i].user_id %></td>
+                  <td><%= users[i].issued_date %></td>
+                  <!-- <td><%= users[i].due_date %></td>
+                  <td><%= users[i].return_date?users[i].return_date:'Return pending' %></td> -->
+                  <!-- <td><a href="editbook/<%= users[i]._id%>"><i class="fas fa-user-edit"></i></a> &nbsp;&nbsp; <a style="color:red;" href="api/deletebook/<%= users[i]._id%>"><i class="fas fa-trash-alt"></i></a></td> -->
+                </tr>
+              <%} } %>
+        
+        </tbody>
+      </table>
+
+ </div>
+
+
+
+<%- include('./includes/footer')%>

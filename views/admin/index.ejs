@@ -1,0 +1,83 @@
+
+<%- include('./includes/nav')%>
+
+  <div class="container">
+
+    <div style="margin-top:50px " class="row">
+        <div  class="col-lg-1 "></div>
+
+        <div  class="col-lg-3 shadow m-3">
+
+          <h2>Users</h2>
+          <p><a style="width:100%" class="btn btn-secondary" href="users">View all »</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-3 shadow m-3">  
+          <h2>Books</h2>
+          <p><a style="width:100%" class="btn btn-secondary" href="books">View all »</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-3 shadow m-3">  
+          <h2>Authors</h2>
+          <p ><a style="width:100%" class="btn btn-secondary" href="authors">View all »</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div  class="col-lg-1 "></div>
+      </div>
+
+      <div style="margin-top:50px " class="row">
+        <div  class="col-lg-1 "></div>
+
+        <div  class="col-lg-3 shadow m-3">
+
+          <h2>Issued Books</h2>
+          <p><a style="width:100%" class="btn btn-secondary" href="issued_books">View all »</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-3 shadow m-3">  
+          <h2>Requests</h2>
+          <p><a style="width:100%" class="btn btn-secondary" href="bookrequests">View all »</a></p>
+        </div>
+        <!-- <div class="col-lg-3 shadow m-3">  
+          <h2>Authors</h2>
+          <p ><a style="width:100%" class="btn btn-secondary" href="#">View all »</a></p>
+        </div> -->
+        <div  class="col-lg-1 "></div>
+      </div>
+
+<!-- <form id="jform">
+  <input class="form-control" type="text" id="aname">
+  <input type="submit" class="bnt bnt-success" >
+</form>
+<h4 id="jh"></h4> -->
+
+
+  </div>
+
+
+  <!-- <script>
+
+
+$(document).ready(()=>{
+
+$('#jform').on('submit',()=>{
+  event.preventDefault();
+
+   let value = $("#aname").val();
+   console.log(value);
+   
+  $.ajax({
+    url:"/admin/ajax",
+    method : "POST",
+    contentType: "application/json",
+    data: JSON.stringify({quote :value}),
+
+    success:(res)=>{
+     $('#jh').html(res.response);
+    }
+  })
+
+})
+
+})
+
+  </script> -->
+
+<%- include('./includes/footer')%>
+

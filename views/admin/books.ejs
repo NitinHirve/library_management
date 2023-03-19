@@ -1,0 +1,45 @@
+<%- include('./includes/nav')%>
+
+<div class="container">
+  <form action="addbook" class="form-inline">
+    <button  style="margin:50px 0 20px 0; " type="submit" class="btn btn-dark btn-outline-warning">Add Book <i class="mdi mdi-badge-account-horizontal-outline:"></i></button>
+  </form>
+
+    <table class="table  table-striped ">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Author</th>
+            <th scope="col">NumOfCopy</th>
+            <th scope="col">AvailableCopy</th>
+            <th scope="col">EssuedDate</th>
+            <th scope="col">Action</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <% for(var i=0; i<users.length;i++) { %>
+          <tr>
+            <th scope="row"><%= i+1 %></th>
+            <td><%= users[i].book_id %></td>
+            <td><%= users[i].bookname %></td>
+            <td><%= users[i].description %></td>
+            <td><%= users[i].authorName %></td>
+            <td><%= users[i].numOfCopy %></td>
+            <td><%= users[i].availableCopy %></td>
+            <td><%= users[i].essuedDate %></td>
+            <td><a style="color:#32e3e6;" href="editbook/<%= users[i]._id%>"><i class="fas fa-user-edit"></i></a> &nbsp; <a style="color:#c9282b;" href="api/deletebook/<%= users[i]._id%>"><i class="fas fa-trash-alt"></i></a></td>
+          </tr>
+        <% } %>
+        
+        </tbody>
+      </table>
+
+ </div>
+
+
+
+<%- include('./includes/footer')%>

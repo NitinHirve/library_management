@@ -1,0 +1,93 @@
+<%- include('./includes/nav') %>
+    <style>
+        .form-control {
+            background-color: #222d32 !important;
+            ;
+            color: white !important;
+            ;
+        }
+        body
+        {
+         overflow: hidden !important;
+        }
+    </style>
+
+
+    <div class="container">
+
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                <div class="" style="border-radius: 15px;  background-color:#222D32;">
+                    <div class="card-body ">
+
+                        <form action="api/adduser" method="POST">
+
+                            <div  class="form-outline  ">
+                                <label class="form-label" for="form3Example1cg">User Id</label>
+                                <input type="number" name="user_id" value="<%= user_id %>" class="form-control form-control-lg" readonly />
+                            </div>
+                            <div style="margin-top:5px;" class="row">
+                                <div class="col">
+                                    <label class="form-label" for="form3Example1cg">Firstname</label>
+                                    <input type="text" name="firstname" class="form-control" placeholder="First name"
+                                        aria-label="First name">
+                                </div>
+                                <div class="col">
+                                    <label class="form-label" for="form3Example1cg">Lastname</label>
+                                    <input type="text" name="lastname" class="form-control" placeholder="Last name"
+                                        aria-label="Last name">
+                                </div>
+                            </div>
+
+                          
+
+                            <div style="margin-top:5px;" class="form-outline  ">
+                                <label class="form-label" for="form3Example1cg">Username</label>
+                                <input type="text" name="username" class="form-control form-control-lg"   placeholder="Username"/>
+                            </div>
+
+                            <div style="margin-top:5px;" class="form-outline  ">
+                                <label class="form-label" for="form3Example1cg">Password</label>
+                                <input type="text" name="password" class="form-control form-control-lg"  placeholder="Password"/>
+                            </div>
+
+                            <div style="margin-top:5px;" class="form-outline  ">
+                                <label class="form-label" for="form3Example1cg">Phone</label>
+                                <input type="number" name="phone" class="form-control form-control-lg"  placeholder="Phone number" />
+                            </div>
+
+                            <div style="margin-top:5px;" class="form-outline  ">
+                                <label class="form-label" for="form3Example1cg">Address</label>
+                                <input type="text" name="address" class="form-control form-control-lg"  placeholder="Address" />
+                            </div>
+
+                            <input type="date" name="created_on" id="todaydate" hidden>
+
+
+
+                            <br>
+                            <div style="color:white;" class="d-flex justify-content-center">
+                                <button type="submit" class="btn btn-success btn-block btn-lg ">Register</button>
+                            </div>
+
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script>
+
+        const todayDate = document.getElementById('todaydate');
+        const date = new Date().toISOString().slice(0, 10);
+        console.log(date);
+        todayDate.value = date;
+
+    </script>
+
+    <%- include('./includes/footer') %>

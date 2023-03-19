@@ -1,0 +1,46 @@
+<%- include('./includes/nav')%>
+
+<div class="container">
+  <form action="adduser" class="form-inline">
+    <button  style="margin:50px 0 20px 0; " type="submit" class="btn btn-dark btn-outline-warning">Add User</button>
+  </form>
+
+    <table class="table  table-striped ">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Id</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Username</th>
+            <th scope="col">Password</th>
+            <th scope="col">Mobile No</th>
+            <th scope="col">Address</th>
+            <th scope="col">Created Date</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for(var i=0; i<users.length;i++) { %>
+          <tr>
+            <th style="color:#50c74e;"  scope="row"><%= i+1 %></th>
+            <td><%= users[i].user_id %></td>
+            <td><%= users[i].firstname %></td>
+            <td><%= users[i].lastname %></td>
+            <td><%= users[i].username %></td>
+            <td><%= users[i].password %></td>
+            <td><%= users[i].phone %></td>
+            <td><%= users[i].address %></td>
+            <td><%= users[i].created_on %></td>
+            <td><a style="color:#32e3e6;" href="edituser/<%= users[i]._id%>"><i class="fas fa-user-edit"></i></a> &nbsp;&nbsp; <a style="color:#c9282b;" href="api/deleteuser/<%= users[i]._id%>"> <i class="fas fa-trash-alt"></i></a></td>
+          </tr>
+        <% } %>
+        
+        </tbody>
+      </table>
+
+ </div>
+
+
+
+<%- include('./includes/footer')%>

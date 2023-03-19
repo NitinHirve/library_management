@@ -1,0 +1,67 @@
+<%- include('./includes/nav') %>
+    <style>
+        .form-control {
+            background-color: #222d32 !important;
+            ;
+            color: white !important;
+            ;
+        }
+    </style>
+
+
+    <div class="container">
+
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                <div class="" style="border-radius: 15px;  background-color:#222D32;">
+                    <div class="card-body ">
+
+                        <form action="/admin/api/editbook/<%= user._id %>" method="POST">
+                            <div style="margin-top:10px;" class="form-outline  ">
+                                <label class="form-label" for="form3Example1cg">Bookname</label>
+                                <input type="text" name="bookname" value="<%= user.bookname %>" class="form-control form-control-lg" />
+                            </div>
+
+                            <div style="margin-top:10px;" class="form-outline  ">
+                                <label class="form-label" for="form3Example1cg">Description</label>
+                                <input type="text" name="description" value="<%= user.description %>" class="form-control form-control-lg" />
+                            </div>
+
+                            <div style="margin-top:10px;" class="form-outline  ">
+                                <label class="form-label" for="form3Example1cg">Authorname</label>
+                                <input type="text" name="authorName" value="<%= user.authorName %>" class="form-control form-control-lg" />
+                            </div>
+
+                            <div style="margin-top:10px;" class="form-outline  ">
+                                <label class="form-label"  for="form3Example1cg">Num Of Copy</label>
+                                <input type="number" name="numOfCopy" value="<%= user.numOfCopy %>" id="numOfCopy" class="form-control form-control-lg" />
+                            </div>
+
+                           
+
+                             <!-- <input type="hidden" name="essuedDate"  id="todaydate" > -->
+                            <!-- <input type="hidden" name="availableCopy" value="<%= user.availableCopy %>" id="availableCopy" >  -->
+
+
+
+
+
+                            <br>
+                            <div style="color:white;" class="d-flex justify-content-center">
+                                <button type="submit" class="btn btn-success btn-block btn-lg ">Update</button>
+                            </div>
+
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+    <%- include('./includes/footer') %>

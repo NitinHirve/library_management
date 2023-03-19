@@ -1,0 +1,45 @@
+<%- include('./includes/nav')%>
+
+<div class="container">
+  <form action="addauthor" class="form-inline">
+    <button  style="margin:50px 0 20px 0; " type="submit" class="btn btn-dark btn-outline-warning">Add Author <i class="mdi mdi-badge-account-horizontal-outline:"></i></button>
+  </form>
+
+    <table class="table  table-striped ">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Username</th>
+            <th scope="col">Password</th>
+            <th scope="col">Mobile No</th>
+            <th scope="col">Address</th>
+            <th scope="col">Created Date</th>
+            <th scope="col">Action</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <% for(var i=0; i<users.length;i++) { %>
+          <tr>
+            <th scope="row"><%= i+1 %></th>
+            <td><%= users[i].firstname %></td>
+            <td><%= users[i].lastname %></td>
+            <td><%= users[i].username %></td>
+            <td><%= users[i].password %></td>
+            <td><%= users[i].phone %></td>
+            <td><%= users[i].address %></td>
+            <td><%= users[i].created_on %></td>
+            <td><a href="editauthor/<%= users[i]._id%>">Edit</a> <a style="color:red;" href="api/deleteauthor/<%= users[i]._id%>">Delete</a></td>
+          </tr>
+        <% } %>
+        
+        </tbody>
+      </table>
+
+ </div>
+
+
+
+<%- include('./includes/footer')%>

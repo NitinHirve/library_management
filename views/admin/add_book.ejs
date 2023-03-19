@@ -1,0 +1,92 @@
+<%- include('./includes/nav') %>
+    <style>
+        .form-control {
+            background-color: #222d32 !important;
+            ;
+            color: white !important;
+            ;
+        }
+    </style>
+
+
+    <div class="container">
+
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                <div class="" style="border-radius: 15px;  background-color:#222D32;">
+                    <div class="card-body ">
+
+                        <form action="api/addbook" method="POST" id="myform">
+
+                            <div  class="form-outline  ">
+                                <label class="form-label" for="form3Example1cg">Book Id</label>
+                                <input type="number" name="book_id" value="<%= book_id %>" class="form-control form-control-lg" readonly />
+                            </div>
+                         
+                            <div style="margin-top:10px;" class="form-outline  ">
+                                <label class="form-label" for="form3Example1cg">Bookname</label>
+                                <input type="text" name="bookname" class="form-control form-control-lg" />
+                            </div>
+
+                            <div style="margin-top:10px;" class="form-outline  ">
+                                <label class="form-label" for="form3Example1cg">Description</label>
+                                <input type="text" name="description" class="form-control form-control-lg" />
+                            </div>
+
+                            <div style="margin-top:10px;" class="form-outline  ">
+                                <label class="form-label" for="form3Example1cg">Authorname</label>
+                                <input type="text" name="authorName" class="form-control form-control-lg" />
+                            </div>
+
+                            <div style="margin-top:10px;" class="form-outline  ">
+                                <label class="form-label"  for="form3Example1cg">Num Of Copy</label>
+                                <input type="number" name="numOfCopy" id="numOfCopy" class="form-control form-control-lg" />
+                            </div>
+
+                           
+
+                            <input type="hidden" name="essuedDate" id="todaydate" >
+                            <input type="hidden" name="availableCopy" id="availableCopy" >
+
+
+
+                            <br>
+                            <div style="color:white;" class="d-flex justify-content-center">
+                                <button type="button" onclick="fun();" class="btn btn-success btn-block btn-lg ">Add</button>
+                            </div>
+
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script>
+
+ function fun() {
+
+ 
+        const todayDate = document.getElementById('todaydate');
+        const date = new Date().toISOString().slice(0, 10);
+         console.log(date);
+        todayDate.value = date;
+
+
+        const numOfCopy = document.getElementById('numOfCopy').value;
+        const availableCopy = document.getElementById('availableCopy');
+        availableCopy.value = numOfCopy;
+        console.log(availableCopy.value);
+        console.log(date);
+
+        document.getElementById("myform").submit();
+ } 
+
+
+    </script>
+
+    <%- include('./includes/footer') %>

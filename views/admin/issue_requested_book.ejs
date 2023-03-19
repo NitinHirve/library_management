@@ -1,0 +1,120 @@
+<%- include('./includes/nav') %>
+    <style>
+      body
+      {
+          overflow: hidden;
+      }
+        .form-control {
+            background-color: #222d32 !important;
+            ;
+            color: white !important;
+            ;
+        }
+    </style>
+
+
+    <div class="container">
+        <div  class="row d-flex justify-content-center align-items-center h-100">
+            <div  class="col-12 col-md-9 col-lg-7 col-xl-6">
+                <div  class="" style="border-radius: 15px;  background-color:#222D32;">
+                    <div class="card-body ">
+
+                        <form style="margin-top:-10px;" action="/admin/api/issue_requested_book" method="POST" id="issuebook">
+                             
+                            <div  class="form-outline  ">
+                                <label class="form-label" for="form3Example1cg">User Id</label>
+                                <input type="number" name="user_id" id="user_id" value="<%= request.user_id%>"
+                                    class="form-control form-control-lg" readonly />
+                            </div>
+
+                            <input type="hidden" name="_id" value="<%= _id %>">
+
+                            <div style="margin-top:5px;" class="form-outline  ">
+                                <label class="form-label" for="form3Example1cg">Book Id</label>
+                                <input type="number" name="book_id" id="book_id" value="<%= request.book_id%>"
+                                    class="form-control form-control-lg" readonly />
+                            </div>
+
+
+
+                            <div style="margin-top:5px;" class="form-outline  ">
+                                <label class="form-label" for="form3Example1cg">Book Name</label>
+                                <input type="text" name="book_name" id="book_name" value="<%= request.book_name%>"
+                                    class="form-control form-control-lg" readonly />
+                            </div>
+
+                            <div style="margin-top:5px;" class="form-outline  ">
+                                <label class="form-label" for="form3Example1cg">Available Copies</label>
+                                <input type="number"  id="availableCopy" value="<%= book.availableCopy %>"
+                                    name="availableCopy" class="form-control form-control-lg" readonly />
+                            </div>
+
+                            <div style="margin-top:5px;" class="form-outline  ">
+                                <label class="form-label" for="form3Example1cg">Issue Date</label>
+                                <input type="date" name="issued_date" id="todaydate"
+                                    class="form-control form-control-lg" readonly />
+                            </div>
+
+                            <div style="margin-top:5px;" class="form-outline  ">
+                                <label class="form-label" for="form3Example1cg">Due Date</label>
+                                <input type="date" name="due_date" id="due_date" class="form-control form-control-lg"
+                                    required />
+                            </div>
+
+
+
+                            
+                            <div style="color:white;margin-top:10px;" class="d-flex justify-content-center">
+                                <button type="button" onclick="fun3()" id="submitButton"
+                                    class="btn btn-success btn-block btn-lg ">Issue</button>
+                            </div>
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script>
+
+
+
+        const todayDate = document.getElementById('todaydate');
+        const date = new Date().toISOString().slice(0, 10);
+        todayDate.value = date;
+
+
+        const availableCopy = document.getElementById('availableCopy').value
+
+        if (availableCopy <= 0) {
+            document.getElementById('submitButton').innerHTML = "No available copies";
+            document.getElementById('submitButton').style.backgroundColor = "#a6243c";
+        }
+        else {
+            document.getElementById('submitButton').innerHTML = "Issue";
+            document.getElementById('submitButton').style.backgroundColor = "#419c49";
+        }
+
+
+        function fun3() {
+            if (availableCopy <= 0)
+                alert("Book cannot issue. There are no more available copies").
+                    else
+            {
+                const form = document.getElementById('issuebook')
+                for (var i = 0; i < form.elements.length; i++) {
+                    if (form.elements[i].value === '' && form.elements[i].hasAttribute('required')) {
+                        return alert('Please fill the require feilds');
+                    }
+                }
+                document.getElementById('issuebook').submit();
+            }
+        }
+
+    </script>
+
+    <%- include('./includes/footer') %>
